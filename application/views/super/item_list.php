@@ -14,13 +14,22 @@
       echo $halaman;
       ?>
 
-      <form action="" class="header-search pull-right" method="post">
-        <input type="text" name="pencarian" placeholder="Code, UPC, Name" onKeyUP="this.value = this.value.toUpperCase();">
-        <button type="submit">
-          <i class="fa fa-search"></i>
-        </button>
+      <form action="" method="post">
 
-      </form>
+      
+        <div class="col-md-5">
+                  <div class="input-group input-group-sm">
+                      <span class="input-group-addon"><i class="fa fa-search"></i></span>
+
+                          <input type="text" name="pencarian" placeholder="Code, Name, UPC" class="form-control" onKeyUP="this.value = this.value.toUpperCase();">
+
+
+                      <span class="input-group-btn">
+                          <button class="btn btn-info" type="submit">Search!</button>
+                      </span>
+                  </div>
+        </div>
+</form>
 
             <table class="table table-striped table-advance table-hover">
              <tbody>

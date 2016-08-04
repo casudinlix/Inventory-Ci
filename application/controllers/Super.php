@@ -53,15 +53,15 @@ class Super extends CI_Controller{
 		$jml = $this->db->get('m_produk');
 
 			$pencarian = $this->input->post('pencarian');
-			$config['base_url'] = base_url().'index.php/super/item_list/';
+			$config['base_url'] = base_url().'/super/item_list/';
 
 			$config['total_rows'] = $jml->num_rows();
 			$config['per_page'] = 10; /*Jumlah data yang dipanggil perhalaman*/
 			$config['uri_segment'] = 3;	/*data selanjutnya di parse diurisegmen 3*/
 
 			/*Class bootstrap pagination yang digunakan*/
-			$config['full_tag_open'] = "<div class='pagination pagination-centered'>";
-    		$config['full_tag_close'] ="</ul>";
+			$config['full_tag_open'] = "<div class='pagination pagination-right'>";
+    	$config['full_tag_close'] ="</ul>";
 			$config['num_tag_open'] = '<li>';
 			$config['num_tag_close'] = '</li>';
 			$config['cur_tag_open'] = "<li class='readonly'><li class='active'><a href='#'>";
