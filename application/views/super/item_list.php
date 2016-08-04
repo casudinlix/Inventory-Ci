@@ -3,38 +3,33 @@
     <section class="wrapper">
 <div class="row">
   <div class="col-lg-12">
-<div class="btn-group">
-<a class="btn btn-primary" href="<?php echo site_url('super/item_input');?>"><i class="fa fa-database"></i>Add</a>
-  </div>
 
+    <div class="btn-group">
+    <a class="btn btn-primary" href="<?php echo site_url('super/item_input');?>"><i class="fa fa-database"></i>Add</a>
+      </div>
 
    <span class="lite">Total Item<?php echo $jumlah= $this->db->count_all('m_produk'); ?></span>
   </div>
+    <?php
+      echo $halaman;
+      ?>
 
+      <form action="" class="header-search pull-right" method="post">
+        <input type="text" name="pencarian" placeholder="Code, UPC, Name" onKeyUP="this.value = this.value.toUpperCase();">
+        <button type="submit">
+          <i class="fa fa-search"></i>
+        </button>
 
-
-
-  <ul class="nav top-menu">
-      <li>
-      
-        <div class="form-group">
-        <?php echo form_open('super/item_list', 'class=form-search');  ?>
-        <?php echo form_input('pencarian','',array('class'=>'form-control round-input','onkeyup'=>'this.value = this.value.toUpperCase()')); ?>
-<?php echo form_submit('','Search',array('class'=>'btn btn-primary')); ?>
-        <?php echo form_close(); ?>
-      </div>
-      </li>
-  </ul>
-
-
+      </form>
 
             <table class="table table-striped table-advance table-hover">
              <tbody>
-               <div class="pagination pagination-right">
-                 <?php
-                   echo $this->pagination->create_links();
-                   ?>
-                 </div>
+
+
+
+
+
+
                 <tr>
                   <th><i class=""></i> NO</th>
                    <th><i class="fa fa-code"></i> Kode Produk</th>
