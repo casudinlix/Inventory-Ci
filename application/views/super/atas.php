@@ -7,7 +7,13 @@
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="<?php echo base_url();?>img/logo-big.png">
-
+<style>
+            @font-face {
+                font-family: code39;
+                src: url(<?php echo base_url();?>Bar-Code_39/Code39.ttf);
+            }
+            div{text-align: left}
+        </style>
     <title>Test System</title>
 
     <!-- Bootstrap CSS -->
@@ -57,7 +63,7 @@
 
             <div class="nav search-row" id="top_menu">
                 <!--  search form start -->
-                
+
                 <!--  search form end -->
             </div>
 

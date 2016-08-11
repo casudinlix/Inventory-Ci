@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | 6. Language files
 | 7. Models
 |
-*/
+ */
 
 /*
 | -------------------------------------------------------------------
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 |  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
 |
-*/
+ */
 $autoload['packages'] = array();
 
 /*
@@ -57,8 +57,8 @@ $autoload['packages'] = array();
 | in the controller:
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
-*/
-$autoload['libraries'] = array('database', 'session','pagination','user_agent','table','form_validation');
+ */
+$autoload['libraries'] = array('database', 'session', 'pagination', 'user_agent', 'table', 'form_validation', 'encrypt', 'upload');
 
 /*
 | -------------------------------------------------------------------
@@ -72,7 +72,7 @@ $autoload['libraries'] = array('database', 'session','pagination','user_agent','
 | Prototype:
 |
 |	$autoload['drivers'] = array('cache');
-*/
+ */
 $autoload['drivers'] = array();
 
 /*
@@ -82,8 +82,8 @@ $autoload['drivers'] = array();
 | Prototype:
 |
 |	$autoload['helper'] = array('url', 'file');
-*/
-$autoload['helper'] = array('url','form','file','html','form_helper');
+ */
+$autoload['helper'] = array('url', 'form', 'file', 'html', 'form_helper');
 
 /*
 | -------------------------------------------------------------------
@@ -96,7 +96,7 @@ $autoload['helper'] = array('url','form','file','html','form_helper');
 | NOTE: This item is intended for use ONLY if you have created custom
 | config files.  Otherwise, leave it blank.
 |
-*/
+ */
 $autoload['config'] = array();
 
 /*
@@ -110,7 +110,7 @@ $autoload['config'] = array();
 | NOTE: Do not include the "_lang" part of your file.  For example
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
-*/
+ */
 $autoload['language'] = array();
 
 /*
@@ -125,5 +125,5 @@ $autoload['language'] = array();
 | in the controller:
 |
 |	$autoload['model'] = array('first_model' => 'first');
-*/
+ */
 $autoload['model'] = array('model_login');
