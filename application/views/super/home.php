@@ -18,18 +18,18 @@
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="<?php echo site_url('super/item_list'); ?>">Item</a></li>
+                          <li><a class="" href="<?php echo site_url('super/item_list');?>">Item</a></li>
                           <li><a class="" href="form_validation.html">Form Validation</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" class="">
                           <i class="icon_desktop"></i>
-                          <span>UI Fitures</span>
+                          <span>Inbound</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="general.html">Elements</a></li>
+                          <li><a class="" href="<?php echo site_url('super/create_po');?>">Create PO</a></li>
                           <li><a class="" href="buttons.html">Buttons</a></li>
                           <li><a class="" href="grids.html">Grids</a></li>
                       </ul>

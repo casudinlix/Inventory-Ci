@@ -64,8 +64,38 @@ class Model_item_list extends CI_Model {
 	public function dept() {
 
 		$result = $this->db->get("m_dept")->result();
+		return $result;
+
+	}
+	public function type() {
+		$result = $this->db->get('pack')->result();
 
 		return $result;
 
 	}
+	public function buat_po() {
+		$years                = date('Y');// tahun
+		$get_3_number_of_year = substr($years, 0);// mengambil 3 angka dari sebelah kanan pada tahun sekarang
+
+		$this->db->select('RIGHT(no_po,6) as kode', FALSE);
+		$this->db->order_by('no_po', 'DESC');
+		//$this->db->limit(1);
+		$query  = $this->db->get('m_po')->num_rows();
+		$query1 = $this->db->get('m_po')->result();
+		$maxid  = $query1[0];
+		//cek dulu apakah ada sudah ada kode di tabel.
+		if ($query <> 0) {
+			//jika kode ternyata sudah ada.
+			$data = $query;
+			$kode = intval($data)+1;
+		} else {
+			//jika kode belum ada
+			$kode = 1;
+
+		}
+		$kodemax  = str_pad($kode, 6, "0", STR_PAD_LEFT);
+		$kodejadi = "P0.".$get_3_number_of_year.$kodemax;
+		return $kodejadi;
+	}
+
 }

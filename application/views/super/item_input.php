@@ -56,6 +56,7 @@ function validAngka(a)
 	</option>
 	<?php }?>
 </select>
+
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Departement</label>
@@ -81,6 +82,23 @@ function validAngka(a)
                                   </div>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">Type</label>
+                                <div class="col-sm-3">
+                                <select class="form-control" name="type">
+
+                                  <option>--Pilih--</option>
+
+<?php foreach ($pack as $row) {
+
+	?>
+	<option>
+	<?php echo $row->nama_type;?>
+	</option>
+	<?php }?>
+</select>
+</div>
+</div>
    <div class="form-group">
 <label class="col-sm-2 control-label">Gambar</label>
                                 <div class="col-sm-1">

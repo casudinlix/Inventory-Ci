@@ -75,20 +75,40 @@ function validAngka(a)
 	</option>
 	<?php }?>
 </select>
-<div class="form-group">
-<label class="">Gambar</label>
-<i class="fa fa-cloud-upload"><input type="file" name="gambar" size="20" /></i>
-<p class="help-block">Example block-level help text here.</p>
-<img src="<?php echo base_url();?>gambar/<?php echo $produk['gambar'];?>" alt="" class="img-circle" width='220px'>
-                </div>
+</div>
 
-                                </div>
-                            </div>
-                            <div class="form-group">
+<div class="form-group">
+                                <label class="col-sm-2 control-label">Type</label>
+                                <div class="col-sm-3">
+
+
+                                  <select class="form-control" name="type">
+<?php echo $produk['type'];?>
+
+<?php foreach ($pack as $row) {
+
+	?>
+	<option>
+	<?php echo $row->nama_type;?>
+	</option>
+	<?php }?>
+</select>
+
+</div>
+ </div>
+<div class="form-group">
+<label class="col-sm-2 control-label">Gambar</label>
+                                <div class="col-sm-1">
+<i class="fa fa-cloud-upload"><input type="file" name="gambar" required="required"/> <img src="<?php echo base_url();?>gambar/<?php echo $produk['gambar'];?>" alt="" class="img-circle" width='120px'></i>
+
+   </div>
+</div>
+                      <div class="form-group">
                                 <label class="col-sm-2 control-label">QTY Inner</label>
                                 <div class="col-sm-1">
 <?php echo form_input('qtyiner', $produk['qty_iner'], array('class' => 'form-control round-input', 'onkeyup' => 'validAngka(this)'));?>
 </div>
+
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">QTY Carton</label>

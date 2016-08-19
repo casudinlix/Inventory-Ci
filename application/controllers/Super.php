@@ -41,6 +41,7 @@ class Super extends CI_Controller {
 		$d['page']    = 'super';
 		$d['dept']    = $this->model_item_list->dept();
 		$d['vendor']  = $this->model_item_list->vendor();
+		$d['pack']    = $this->model_item_list->type();
 
 		//$dept=$this->model_item_list->dept();
 		$this->load->view('super/atas', $d);
@@ -114,6 +115,7 @@ class Super extends CI_Controller {
 		$d['page']   = 'super';
 		$d['dept']   = $this->model_item_list->dept();
 		$d['vendor'] = $this->model_item_list->vendor();
+		$d['pack']   = $this->model_item_list->type();
 		//$this->load->model('item_list');
 		$this->load->view('super/atas', $d);
 		$this->load->view('super/home', $d);
@@ -147,6 +149,7 @@ class Super extends CI_Controller {
 				'vendor'      => $this->input->post('vendor'),
 				'dept'        => $this->input->post('dept'),
 				'qty_iner'    => $this->input->post('qtyiner'),
+				'type'        => $this->input->post('type'),
 				'qty_carton'  => $this->input->post('qtycarton'),
 				'qty_palet'   => $this->input->post('qtypalet'),
 				'cbm'         => $this->input->post('cbm'),
@@ -185,6 +188,7 @@ class Super extends CI_Controller {
 				'nama_produk'                  => $this->input->post('namaproduk'),
 				'vendor'                       => $this->input->post('vendor'),
 				'dept'                         => $this->input->post('dept'),
+				'type'                         => $this->input->post('type'),
 				'qty_iner'                     => $this->input->post('qtyiner'),
 				'qty_carton'                   => $this->input->post('qtycarton'),
 				'qty_palet'                    => $this->input->post('qtypalet'),
@@ -202,23 +206,22 @@ class Super extends CI_Controller {
 
 		}
 	}
-	function generate($upc) {
-		$this->load->model('model_item_list');
-		//$this->model_item_list->produk()->row_array();
-		$upc = $this->db->get('m_produk');
+	function create_po() {
+		$kode['kode'] = $this->model_item_list->buat_po();
+		$d['nama']    = $this->session->userdata('nama');
+		$d['foto']    = $this->session->userdata('foto');
+		$d['page']    = 'super';
+		$d['dept']    = $this->model_item_list->dept();
+		$d['vendor']  = $this->model_item_list->vendor();
+		$d['pack']    = $this->model_item_list->type();
 
-		$this->load->library('zend');
-		//load in folder Zend
-		$this->load->library('zend');
+		//$dept=$this->model_item_list->dept();
+		$this->load->view('super/atas', $d);
+		$this->load->view('super/home', $d);
+		$this->load->view('super/inbound_PO', $kode, $d);
 
-		$this->zend->load('Zend/Barcode');
-		$kode = $upc->upc;
-		Zend_Barcode::render('ean13', 'image', array('text' => $kode), array());
-
-		// we can save it with image
-		//$test = Zend_Barcode::draw('code128', 'image', array('text' => '1234565'), array());
-		//var_dump($test);
-		//imagejpeg($test, 'barcode.jpg', 100);
+	}
+	function simpan_po() {
 
 	}
 

@@ -28,12 +28,6 @@ echo $halaman;
 <?php form_close();?>
 <table class="table table-striped table-advance table-hover">
              <tbody>
-
-
-
-
-
-
                 <tr>
                   <th><i class=""></i> NO</th>
                    <th><i class="fa fa-code"></i> Kode Produk</th>
@@ -41,7 +35,7 @@ echo $halaman;
                    <th><i class="fa fa-linux"></i> Nama Produk</th>
                    <th><i class="fa fa-rebel"></i> Vendor</th>
                    <th><i class="fa fa-group"></i> Dept</th>
-
+                    <th><i class="fa fa-check-square-o"></i> Type</th>
                    <th><i class="fa fa-sort-numeric-asc"></i> Qty Inner</th>
                    <th><i class="fa fa-sort-numeric-asc"></i> Qty Karton</th>
                    <th><i class="fa fa-sort-numeric-asc"></i> Qty Pallet</th>
@@ -55,29 +49,30 @@ $no = 0;
 foreach ($data as $d) {
 
 	?>
-											  <td class=""><?php echo ++$no;?></td>
-											 	 <td class=""><?php echo $d->kd_produk;?></td>
-												 	  <td><?php echo $d->upc;?>
-										     </td>
-												 	  <td><?php echo $d->nama_produk;?></td>
-										 			   <td><?php echo $d->vendor;?></td>
-											 	  <td><?php echo $d->dept;?></td>
-								           <td></td>
-										 	 <td><?php echo $d->qty_iner;?></td>
-										   <td><?php echo $d->qty_carton;?></td>
+					 <td class=""><?php echo ++$no;?></td>
+				<td class=""><?php echo $d->kd_produk;?></td>
+					 <td><?php echo $d->upc;?></td>
+				<td><?php echo $d->nama_produk;?></td>
+				 <td><?php echo $d->vendor;?></td>
+				<td><?php echo $d->dept;?></td>
+		    <td><?php echo $d->type;?></td>
 
-											  <td><?php echo $d->qty_palet;?></td>
-												   <td><?php echo $d->cbm;?></td>
-											  <td>
-																										 <div class="btn-group">
+				 <td><?php echo $d->qty_iner;?></td>
+
+																				   <td><?php echo $d->qty_carton;?></td>
+
+																					  <td><?php echo $d->qty_palet;?></td>
+																						   <td><?php echo $d->cbm;?></td>
+																					  <td>
+																																				 <div class="btn-group">
 	<?php ?>
-																							<i class='btn btn-info'><?php echo anchor('super/item_edit/'.$d->kd_produk, '<b/>Edit');?><i class="fa fa-edit"></i></i>
+																																	<i class='btn btn-info'><?php echo anchor('super/item_edit/'.$d->kd_produk, '<b/>Edit');?><i class="fa fa-edit"></i></i>
 
 
 
-																												     </div>
-																										</td>
-																										 </tr>
+																																						     </div>
+																																				</td>
+																																				 </tr>
 	<?php }
 ?>
 </tbody>
