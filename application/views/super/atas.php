@@ -7,14 +7,8 @@
     <meta name="author" content="GeeksLabs">
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="<?php echo base_url();?>img/logo-big.png">
-<style>
-            @font-face {
-                font-family: code39;
-                src: url(<?php echo base_url();?>Bar-Code_39/Code39.ttf);
-            }
-            div{text-align: left}
-        </style>
-    <title>Test System</title>
+
+    <title>Tes System</title>
 
     <!-- Bootstrap CSS -->
     <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
@@ -24,33 +18,16 @@
     <!-- font icon -->
     <link href="<?php echo base_url();?>css/elegant-icons-style.css" rel="stylesheet" />
     <link href="<?php echo base_url();?>css/font-awesome.min.css" rel="stylesheet" />
-    <!-- full calendar css-->
-    <link href="<?php echo base_url();?>assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
-	<link href="assets/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" />
-    <!-- easy pie chart-->
-    <link href="<?php echo base_url();?>assets/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
-    <!-- owl carousel -->
-    <link rel="stylesheet" href="<?php echo base_url();?>css/owl.carousel.css" type="text/css">
-	<link href="<?php echo base_url();?>css/jquery-jvectormap-1.2.2.css" rel="stylesheet">
     <!-- Custom styles -->
-	<link rel="<?php echo base_url();?>stylesheet" href="css/fullcalendar.css">
-	<link href="<?php echo base_url();?>css/widgets.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/style-responsive.css" rel="stylesheet" />
-	<link href="<?php echo base_url();?>css/xcharts.min.css" rel=" stylesheet">
-	<link href="<?php echo base_url();?>css/jquery-ui-1.10.4.min.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 -->
-    <!--[if lt IE 9]>
-      <script src="js/html5shiv.js"></script>
-      <script src="js/respond.min.js"></script>
-      <script src="js/lte-ie7.js"></script>
-    <![endif]-->
+
   </head>
 
   <body>
   <!-- container section start -->
   <section id="container" class="">
-
+      <!--header start-->
 
       <header class="header dark-bg">
             <div class="toggle-nav">
@@ -58,25 +35,25 @@
             </div>
 
             <!--logo start-->
-            <a href="index.html" class="logo">Test <span class="lite">System</span></a>
+            <a href="<?php echo base_url('super');?>" class="logo">Nice <span class="lite">Admin</span></a>
             <!--logo end-->
 
-            <div class="nav search-row" id="top_menu">
-                <!--  search form start -->
-
-                <!--  search form end -->
-            </div>
 
             <div class="top-nav notification-row">
                 <!-- notificatoin dropdown start-->
                 <ul class="nav pull-right top-menu">
+
+                    <!-- task notificatoin start -->
+
+                    <!-- task notificatoin end -->
+                    <!-- inbox notificatoin start-->
 
 
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="<?php echo base_url();?>user/<?php echo $foto;?>" height="50px">
+                                  <img alt="" src="<?php echo base_url();?>user/<?php echo $foto;?>" height="50px">
                             </span>
                             <span class="username"><?php echo $nama;?></span>
                             <b class="caret"></b>
@@ -112,3 +89,87 @@
             </div>
       </header>
       <!--header end-->
+
+      <!--sidebar start-->
+      <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+                  <li class="">
+                      <a class="" href="<?php echo base_url('super');?>">
+                          <i class="icon_house_alt"></i>
+                          <span>Dashboard</span>
+                      </a>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_document_alt"></i>
+                          <span>Konfigurasi</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="<?php echo site_url('super/item_list');?>">ITEM</a></li>
+                          <li><a class="" href="form_validation.html">Form Validation</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Purcase Order</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="<?php echo site_url('super/create_PO');?>">Buat PO</a></li>
+                          <li><a class="" href="buttons.html">Buttons</a></li>
+                          <li><a class="" href="grids.html">Grids</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a class="" href="widgets.html">
+                          <i class="icon_genius"></i>
+                          <span>Widgets</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a class="" href="chart-chartjs.html">
+                          <i class="icon_piechart"></i>
+                          <span>Charts</span>
+
+                      </a>
+
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_table"></i>
+                          <span>Tables</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="basic_table.html">Basic Table</a></li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu ">
+                      <a href="javascript:;" class="">
+                          <i class="icon_documents_alt"></i>
+                          <span>Pages</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" href="profile.html">Profile</a></li>
+                          <li><a class="" href="login.html"><span>Login Page</span></a></li>
+                          <li><a class="active" href="blank.html">Blank Page</a></li>
+                          <li><a class="" href="404.html">404 Error</a></li>
+                      </ul>
+                  </li>
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
+      <!--sidebar end-->
+
+      <!--main content start-->
+      <section id="main-content">
+          <section class="wrapper">

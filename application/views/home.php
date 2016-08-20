@@ -1,5 +1,25 @@
 <html lang="en">
 <head>
+<script type='text/javascript' src='<?php echo base_url();?>assets/js1/jquery-1.8.2.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url();?>assets/js1/jquery.autocomplete.js'></script>
+
+    <!-- Memanggil file .css untuk style saat data dicari dalam filed -->
+    <link href='<?php echo base_url();?>assets/js1/jquery.autocomplete.css' rel='stylesheet' />
+
+<script type='text/javascript'>
+        var site = "<?php echo site_url();?>";
+        $(function(){
+            $('.autocomplete').autocomplete({
+                // serviceUrl berisi URL ke controller/fungsi yang menangani request kita
+                serviceUrl: site+'/super/create_po',
+                // fungsi ini akan dijalankan ketika user memilih salah satu hasil request
+                onSelect: function (suggestion) {
+                    $('#kdproduk').val(''+suggestion.kdproduk); // membuat id 'v_nim' untuk ditampilkan
+                    $('#namaproduk').val(''+suggestion.namaproduk); // membuat id 'v_jurusan' untuk ditampilkan
+                }
+            });
+        });
+    </script>
 	<meta charset="utf-8">
 	<link rel="shortcut icon" href="<?php echo base_url();?>img/logo-big.png">
 	<title><?php echo $title;?></title>
@@ -39,16 +59,16 @@
 					</div>
 				</div>
 
-				<?php
-				if($this->session->flashdata('pesan') <> ''){
-				?>
-					<div class="alert alert-dismissible alert-danger">
-						<?php echo $this->session->flashdata('pesan');?>
-					</div>
-				<?php
-				}
-				?>
-			</div>
+<?php
+if ($this->session->flashdata('pesan') <> '') {
+	?>
+	<div class="alert alert-dismissible alert-danger">
+	<?php echo $this->session->flashdata('pesan');?>
+	</div>
+	<?php
+}
+?>
+</div>
 		</form>
 	</body>
 </html>

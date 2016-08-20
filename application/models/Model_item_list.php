@@ -3,6 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Model_item_list extends CI_Model {
+	var $tabel = 'm_produk';//variabel tabelnya
 	public function vendor() {
 		$result = $this->db->get("m_vendor")->result();
 
@@ -96,6 +97,12 @@ class Model_item_list extends CI_Model {
 		$kodemax  = str_pad($kode, 6, "0", STR_PAD_LEFT);
 		$kodejadi = "P0.".$get_3_number_of_year.$kodemax;
 		return $kodejadi;
+	}
+	public function auto() {
+		$this->db->select('nama_produk');
+		$this->db->like('kd_produk');
+		$query = $this->db->get('m_produk');
+		return $query->result();
 	}
 
 }

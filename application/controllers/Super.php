@@ -45,8 +45,9 @@ class Super extends CI_Controller {
 
 		//$dept=$this->model_item_list->dept();
 		$this->load->view('super/atas', $d);
-		$this->load->view('super/home', $d);
+
 		$this->load->view('super/item_input', $kode, $d);
+		$this->load->view('super/home', $d);
 
 	}
 	public function item_list($offset = 0) {
@@ -100,8 +101,9 @@ class Super extends CI_Controller {
 		$d['page'] = 'super';
 
 		$this->load->view('super/atas', $d);
-		$this->load->view('super/home', $d);
+
 		$this->load->view('super/item_list', $data, $d);
+		$this->load->view('super/home', $d);
 	}
 	public function item_edit() {
 
@@ -118,8 +120,9 @@ class Super extends CI_Controller {
 		$d['pack']   = $this->model_item_list->type();
 		//$this->load->model('item_list');
 		$this->load->view('super/atas', $d);
-		$this->load->view('super/home', $d);
+
 		$this->load->view('super/update_item', $data, $d);
+		$this->load->view('super/home', $d);
 	}
 	public function simpan_item() {
 		$kd_produk               = $this->input->post('kodebarang');
@@ -207,18 +210,22 @@ class Super extends CI_Controller {
 		}
 	}
 	function create_po() {
+		//$kode  = $this->input->post('kode', TRUE);//variabel kunci yang di bawa dari input text id kode
+
 		$kode['kode'] = $this->model_item_list->buat_po();
-		$d['nama']    = $this->session->userdata('nama');
-		$d['foto']    = $this->session->userdata('foto');
-		$d['page']    = 'super';
-		$d['dept']    = $this->model_item_list->dept();
-		$d['vendor']  = $this->model_item_list->vendor();
-		$d['pack']    = $this->model_item_list->type();
+
+		$d['nama']   = $this->session->userdata('nama');
+		$d['nip']    = $this->session->userdata('nip');
+		$d['foto']   = $this->session->userdata('foto');
+		$d['page']   = 'super';
+		$d['dept']   = $this->model_item_list->dept();
+		$d['vendor'] = $this->model_item_list->vendor();
+		$d['pack']   = $this->model_item_list->type();
 
 		//$dept=$this->model_item_list->dept();
 		$this->load->view('super/atas', $d);
-		$this->load->view('super/home', $d);
 		$this->load->view('super/inbound_PO', $kode, $d);
+		$this->load->view('super/home', $d);
 
 	}
 	function simpan_po() {

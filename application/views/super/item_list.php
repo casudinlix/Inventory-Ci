@@ -1,6 +1,4 @@
 
-<section id="main-content">
-    <section class="wrapper">
 <div class="row">
   <div class="col-lg-12">
 
@@ -49,30 +47,30 @@ $no = 0;
 foreach ($data as $d) {
 
 	?>
-					 <td class=""><?php echo ++$no;?></td>
-				<td class=""><?php echo $d->kd_produk;?></td>
-					 <td><?php echo $d->upc;?></td>
-				<td><?php echo $d->nama_produk;?></td>
-				 <td><?php echo $d->vendor;?></td>
-				<td><?php echo $d->dept;?></td>
-		    <td><?php echo $d->type;?></td>
+						 <td class=""><?php echo ++$no;?></td>
+					<td class=""><?php echo $d->kd_produk;?></td>
+						 <td><?php echo $d->upc;?></td>
+					<td><?php echo $d->nama_produk;?></td>
+					 <td><?php echo $d->vendor;?></td>
+					<td><?php echo $d->dept;?></td>
+			    <td><?php echo $d->type;?></td>
 
-				 <td><?php echo $d->qty_iner;?></td>
+					 <td><?php echo $d->qty_iner;?></td>
 
-																				   <td><?php echo $d->qty_carton;?></td>
+																					   <td><?php echo $d->qty_carton;?></td>
 
-																					  <td><?php echo $d->qty_palet;?></td>
-																						   <td><?php echo $d->cbm;?></td>
-																					  <td>
-																																				 <div class="btn-group">
+																						  <td><?php echo $d->qty_palet;?></td>
+																							   <td><?php echo $d->cbm;?></td>
+																						  <td>
+																																					 <div class="btn-group">
 	<?php ?>
-																																	<i class='btn btn-info'><?php echo anchor('super/item_edit/'.$d->kd_produk, '<b/>Edit');?><i class="fa fa-edit"></i></i>
+																																		<i class='btn btn-info'><?php echo anchor('super/item_edit/'.$d->kd_produk, '<b/>Edit');?><i class="fa fa-edit"></i></i>
 
 
 
-																																						     </div>
-																																				</td>
-																																				 </tr>
+																																							     </div>
+																																					</td>
+																																					 </tr>
 	<?php }
 ?>
 </tbody>
