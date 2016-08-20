@@ -1,6 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+  <script type='text/javascript' src='<?php echo base_url();?>js/jquery.min.js'></script>
+    <script type='text/javascript' src='<?php echo base_url();?>js/jquery.autocomplete.js'></script>
+<script src="<?=base_url()?>js/jquery-1.5.2.min.js" type="text/javascript"></script>
+    <script src="<?=base_url()?>js/jquery-ui.js" type="text/javascript"></script>
+    <!-- Memanggil file .css untuk style saat data dicari dalam filed -->
+    <link href='<?php echo base_url();?>js/jquery.autocomplete.css' rel='stylesheet' />
+ <script src="<?=base_url()?>js/jquery.autocomplete.js" type="text/javascript"></script>
+    <!-- Memanggil file .css autocomplete_ci/assets/css/default.css -->
+
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
@@ -12,6 +24,8 @@
 
     <!-- Bootstrap CSS -->
     <link href="<?php echo base_url();?>css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url();?>css/jquery-ui.css" rel="stylesheet">
+
     <!-- bootstrap theme -->
     <link href="<?php echo base_url();?>css/bootstrap-theme.css" rel="stylesheet">
     <!--external css-->
@@ -21,6 +35,7 @@
     <!-- Custom styles -->
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/style-responsive.css" rel="stylesheet" />
+
 
   </head>
 
@@ -35,7 +50,7 @@
             </div>
 
             <!--logo start-->
-            <a href="<?php echo base_url('super');?>" class="logo">Nice <span class="lite">Admin</span></a>
+            <a href="<?php echo base_url('super');?>" class="logo">Test <span class="lite">System</span></a>
             <!--logo end-->
 
 

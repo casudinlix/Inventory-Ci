@@ -1,3 +1,32 @@
+<script>
+        $(document).ready(function(){
+            $("#vendor").change(function (){
+                var url = "<?php echo site_url('super/add_ajax_kab');?>/"+$(this).val();
+                $('#kdproduk').load(url);
+                return false;
+            })
+
+      $("#kdproduk").change(function (){
+                var url = "<?php echo site_url('super/add_ajax_kec');?>/"+$(this).val();
+                $('#namaproduk').load(url);
+                return false;
+            })
+
+      $("#namaproduk").change(function (){
+                var url = "<?php echo site_url('super/add_ajax_des');?>/"+$(this).val();
+                $('#desa').load(url);
+                return false;
+            })
+        });
+    </script>
+<section class="wrapper">
+<div class="row">
+  <div class="col-lg-12">
+
+  </div>
+</div>
+
+
 <div class="container">
 
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Tampilkan Form</button>
@@ -16,37 +45,43 @@
  <label>No PO</label>
 <?php echo form_input('nopo', $kode, array('class' => 'form-control round-input', 'readonly' => true, 'onkeyup' => 'this.value = this.value.toUpperCase()'));?>
 <label>Vendor</label>
-<select class="form-control" name="vendor">
+<select class="form-control" name="ven" id="vendor">
 
-                                  <option>--Pilih--</option>
+  <option>--Pilih--</option>
 
-<?php foreach ($vendor as $row) {
-
-	?>
-	<option>
-	<?php echo $row->nama_vendor;?>
-	</option>
-	<?php }?>
+<?php foreach ($produk as $prov) {
+	echo '<option value="'.$prov->kd_vendor.'">'.$prov->nama_vendor.'</option>';
+}?>
 </select>
 
 </div>
 
 <div class="form-group">
 <div class="col-sm-2">
-                                <label>Kode Produk</label>
-<?php echo form_input('kode', '', array('class' => 'form-control round-input', 'id' => 'kode', 'onkeyup' => 'this.value = this.value.toUpperCase()'));?></div>
+   <label>Kode Produk</label>
+<select class="form-control" name="kd" id="kdproduk">
+
+                                  <option>--Pilih--</option>
+
+
+                                  </select>
+                                  </div>
 <div class="form-group">
-<input id="autocomplete" title="type &quot;a&quot;">
-<div class="col-sm-2">
+<div class="col-sm-4">
 <label>Nama Produk</label>
-<?php echo form_input('namaproduk', '', array('class' => 'form-control round-input', 'id' => 'namaproduk', 'onkeyup' => 'this.value = this.value.toUpperCase()'));?>
+<select class="form-control" name="namapro" id="namaproduk" readonly="readonly">
+    <option>--Pilih--</option>
+
+  </select>
+
+
 </div>
 
 <div class="form-group">
 <div class="col-sm-1">
 <label>QTY</label>
 
-<?php echo form_input('qtyiner', '', array('class' => 'form-control round-input', 'onkeyup' => 'validAngka(this)', 'required' => 'required'));?>
+<?php echo form_input('qty', '', array('class' => 'form-control round-input', 'onkeyup' => 'validAngka(this)', 'required' => 'required'));?>
 </div>
 
 <div class="form-group">

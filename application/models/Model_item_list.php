@@ -48,6 +48,7 @@ class Model_item_list extends CI_Model {
 		//return $query->result();
 
 		if ($pencarian) {
+
 			$query = $this->db->or_like(array('kd_produk' => $pencarian, 'nama_produk' => $pencarian, 'upc' => $pencarian));
 
 		}
@@ -57,6 +58,7 @@ class Model_item_list extends CI_Model {
 			$query = $this->db->or_like(array('kd_produk' => $pencarian, 'nama_produk' => $pencarian, 'upc' => $pencarian));
 
 		}
+
 		$query = $this->db->get('m_produk', $offset, $num);
 
 		return $query->result();
@@ -99,10 +101,34 @@ class Model_item_list extends CI_Model {
 		return $kodejadi;
 	}
 	public function auto() {
-		$this->db->select('nama_produk');
-		$this->db->like('kd_produk');
-		$query = $this->db->get('m_produk');
-		return $query->result();
+		$result = $this->db->get("m_produk")->result();
+		return $result;
 	}
 
+	function vendor1() {
+
+		$vendor = $this->db->get('m_vendor');
+		return $vendor->result_array();
+
+	}
+	function kdproduk($proId) {
+		$kdproduk = "<option value='0'>--pilih--</pilih>";
+
+		$this->db->order_by('kd_produk', 'ASC');
+		$kab = $this->db->get_where('regencies', array('id' => $proId));
+
+		foreach ($kab->result_array() as $data) {
+			$kdproduk .= "<option value='$data[id]'>$data[kd_produk]</option>";
+		}
+
+		return $kdproduk;
+
+	}
+	function get_all_produk() {
+
+		$query = $this->db->get('m_vendor');
+
+		return $query->result();
+
+	}
 }

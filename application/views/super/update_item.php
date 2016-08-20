@@ -43,16 +43,15 @@ function validAngka(a)
                                 <div class="col-sm-3">
                                   <select class="form-control" name="vendor">
                                     <option>
-<?php echo $produk['vendor'];?>
+<?php echo $produk['kd_vendor'];?>
 </option>
 
 
 <?php foreach ($vendor as $row) {
 
 	?>
-	<option>
-	<?php echo $row->nama_vendor;?>
-	</option>
+			<option value="<?php echo $row->kd_vendor;?>"><?php echo $row->nama_vendor;
+	?></option>
 	<?php }?>
 </select>
                                   </div>                                </div>

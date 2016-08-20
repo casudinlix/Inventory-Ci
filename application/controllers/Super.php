@@ -8,6 +8,7 @@ class Super extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->load->model('model_item_list');
 		$this->load->library('upload');
+
 		if ($this->session->userdata('role') <> 'super-user') {
 			redirect('login');
 		}
@@ -149,7 +150,7 @@ class Super extends CI_Controller {
 				'kd_produk'   => $this->input->post('kodebarang'),
 				'upc'         => $this->input->post('upc'),
 				'nama_produk' => $this->input->post('namaproduk'),
-				'vendor'      => $this->input->post('vendor'),
+				'kd_vendor'   => $this->input->post('vendor'),
 				'dept'        => $this->input->post('dept'),
 				'qty_iner'    => $this->input->post('qtyiner'),
 				'type'        => $this->input->post('type'),
@@ -189,7 +190,7 @@ class Super extends CI_Controller {
 			$databarang = array('kd_produk' => $this->input->post('kodebarang'),
 				'upc'                          => $this->input->post('upc'),
 				'nama_produk'                  => $this->input->post('namaproduk'),
-				'vendor'                       => $this->input->post('vendor'),
+				'kd_vendor'                    => $this->input->post('vendor'),
 				'dept'                         => $this->input->post('dept'),
 				'type'                         => $this->input->post('type'),
 				'qty_iner'                     => $this->input->post('qtyiner'),
@@ -214,21 +215,49 @@ class Super extends CI_Controller {
 
 		$kode['kode'] = $this->model_item_list->buat_po();
 
+		//$query = $this->model_item_list->auto();//query model
+
 		$d['nama']   = $this->session->userdata('nama');
 		$d['nip']    = $this->session->userdata('nip');
 		$d['foto']   = $this->session->userdata('foto');
 		$d['page']   = 'super';
 		$d['dept']   = $this->model_item_list->dept();
-		$d['vendor'] = $this->model_item_list->vendor();
-		$d['pack']   = $this->model_item_list->type();
+		$d['produk'] = $this->model_item_list->get_all_produk();
+		//$d['kdproduk'] = $this->model_item_list->kdproduk();
+
+		//$data['vendor'] = $this->model_item_list->vendor1();
+		//$query = $this->model_item_list->auto();
 
 		//$dept=$this->model_item_list->dept();
+		//$data['produk'] = $this->model_item_list->get_all_produk();
+
+		//$d['produk'] = $this->model_item_list->get_all_produk();
 		$this->load->view('super/atas', $d);
 		$this->load->view('super/inbound_PO', $kode, $d);
 		$this->load->view('super/home', $d);
 
 	}
 	function simpan_po() {
+
+	}
+	function add_ajax_kab($ven_vendor) {
+		$data['produk'] = $this->model_item_list->get_all_produk();
+		$query          = $this->db->get_where('m_produk', array('kd_vendor' => $ven_vendor));
+		$data           = "<option value=''>- Pilih Produk -</option>";
+		foreach ($query->result() as $value) {
+			$data .= "<option value='".$value->kd_produk."'>".$value->kd_produk."</option>";
+		}
+		echo $data;
+	}
+
+	function add_ajax_kec($kd_kdproduk) {
+		$data['produk'] = $this->model_item_list->get_all_produk();
+		$query          = $this->db->get_where('m_produk', array('kd_produk' => $kd_kdproduk));
+
+		foreach ($query->result() as $value) {
+			$data .= "<option value='".$value->nama_produk."'>".$value->nama_produk."</option>";
+		}
+		echo $data;
 
 	}
 

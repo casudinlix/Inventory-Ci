@@ -47,11 +47,9 @@ function validAngka(a)
                                   <option>--Pilih--</option>
 
 <?php foreach ($vendor as $row) {
-
 	?>
-	<option>
-	<?php echo $row->nama_vendor;?>
-	</option>
+		<option value="<?php echo $row->kd_vendor;?>"><?php echo $row->nama_vendor;
+	?></option>
 	<?php }?>
 </select>
 
