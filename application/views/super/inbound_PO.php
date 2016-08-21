@@ -20,7 +20,7 @@
         });
 
     </script>
-
+<?php ?>
 <section class="wrapper">
 <div class="row">
   <div class="col-lg-12">
@@ -42,10 +42,12 @@
                     <div class="panel-body">
 <?php echo form_open_multipart('super/simpan_po/', 'class=form-horizontal');?>
 <div class="form-group">
-
+<input type="hidden" name="tgl" value="<?php echo date('Y-m-d');?>">
  <div class="col-sm-2">
  <label>No PO</label>
-<?php echo form_input('nopo', $kode, array('class' => 'form-control round-input', 'readonly' => true, 'onkeyup' => 'this.value = this.value.toUpperCase()'));?>
+<?php echo form_input('no', $kode, array('class' => 'form-control round-input', 'readonly' => true, 'id' => 'po', 'onkeyup' => 'this.value = this.value.toUpperCase()'));?>
+
+<?php ?>
 <label>Vendor</label>
 <select class="form-control" name="ven" id="vendor">
 
@@ -114,7 +116,9 @@
 </div>
 
 
-<?php echo form_close();?>
+<?php
+
+echo form_close();?>
 <div class="col-xs-11">
           <div class="box">
             <div class="box-header">
@@ -130,21 +134,34 @@
                   <th style="background-color: #99ffff;">Kode Produk</th>
                   <th style="background-color: #99ffff;">Nama Produk</th>
                   <th style="background-color: #99ffff;">Qty</th>
-                  <th style="background-color: #99ffff;">Lokasi</th>
+                  <th style="background-color: #99ffff;">Tanggal</th>
                   <th style="background-color: #99ffff;">User</th>
                   <th style="background-color: #99ffff;">Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr class="success">
-                  <td class="bg-info">Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                  <td>X</td>
-                </tr>
+<?php
+$data = $this->db->get_where('m_po_detail', array('no_po' => $kode))->result();
+foreach ($data as $value) {
+
+	?>
+																	 <tr class="success">
+																	  <td class="warning"><?php echo $value->no_po;?></td>
+														        <td><?php echo $value->vendor;?></td>
+														        <td><?php echo $value->kd_produk;?></td>
+							                      <td><?php echo $value->nama_produk;?></td>
+														        <td><?php echo $value->qty;?></td>
+														<td><?php echo $value->tgl;?></td>
+														<td><?php echo $value->user;?></td>
+
+												    <td colspan="" rowspan="" headers=""><i class='btn btn-info'><?php echo anchor('super/item_edit/'.$value->no_po, '<b/>Edit');?><i class="fa fa-edit"></i></i>
+												</td>
+
+
+
+
+																		     </tr>
+	<?php }?>
 </tbody>
 </table>
 </div>

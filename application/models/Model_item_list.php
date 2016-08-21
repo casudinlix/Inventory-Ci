@@ -111,24 +111,19 @@ class Model_item_list extends CI_Model {
 		return $vendor->result_array();
 
 	}
-	function kdproduk($proId) {
-		$kdproduk = "<option value='0'>--pilih--</pilih>";
 
-		$this->db->order_by('kd_produk', 'ASC');
-		$kab = $this->db->get_where('regencies', array('id' => $proId));
-
-		foreach ($kab->result_array() as $data) {
-			$kdproduk .= "<option value='$data[id]'>$data[kd_produk]</option>";
-		}
-
-		return $kdproduk;
-
-	}
 	function get_all_produk() {
 
 		$query = $this->db->get('m_vendor');
 
 		return $query->result();
+
+	}
+	function tampil_po($kode = FALSE) {
+		$query = $this->db->get_where('m_po_detail', array('no_po' => $kode));
+
+		$query->result_array();
+		return $query;
 
 	}
 }

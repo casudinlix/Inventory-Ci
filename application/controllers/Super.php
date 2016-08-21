@@ -216,28 +216,75 @@ class Super extends CI_Controller {
 		$kode['kode'] = $this->model_item_list->buat_po();
 
 		//$query = $this->model_item_list->auto();//query model
-
+		$d['nopo']   = $this->input->post($kode);
 		$d['nama']   = $this->session->userdata('nama');
 		$d['nip']    = $this->session->userdata('nip');
 		$d['foto']   = $this->session->userdata('foto');
 		$d['page']   = 'super';
 		$d['dept']   = $this->model_item_list->dept();
 		$d['produk'] = $this->model_item_list->get_all_produk();
-		//$d['kdproduk'] = $this->model_item_list->kdproduk();
+		//$data['po']  = $this->model_item_list->tampil_po();
 
-		//$data['vendor'] = $this->model_item_list->vendor1();
-		//$query = $this->model_item_list->auto();
-
-		//$dept=$this->model_item_list->dept();
-		//$data['produk'] = $this->model_item_list->get_all_produk();
-
-		//$d['produk'] = $this->model_item_list->get_all_produk();
 		$this->load->view('super/atas', $d);
 		$this->load->view('super/inbound_PO', $kode, $d);
 		$this->load->view('super/home', $d);
 
 	}
 	function simpan_po() {
+		if (isset($_POST['simpan'])) {
+			$data_PO = array('no_po' => $this->input->post('no'),
+				'vendor'                => $this->input->post('ven'),
+				'kd_produk'             => $this->input->post('kd'),
+				'nama_produk'           => $this->input->post('namapro'),
+				'qty'                   => $this->input->post('qty'),
+				'tgl'                   => $this->input->post('tgl'),
+				'user'                  => $this->input->post('user')
+			);
+			$this->db->insert('m_po_detail', $data_PO);
+			$s = "<script>
+  alert('Menambahkan Data Berhasil');
+  window.location.href = 'create_PO';
+</script>";
+			echo $s;
+
+		}
+		if (isset($_POST['simpanpo'])) {
+			$kode     = $this->input->post('no');
+			$data_PO1 = array('no_po' => $this->input->post('no'),
+				'vendor'                 => $this->input->post('ven'),
+				'kd_produk'              => $this->input->post('kd'),
+				'nama_produk'            => $this->input->post('namapro'),
+				'qty'                    => $this->input->post('qty'),
+				'tgl'                    => $this->input->post('tgl'),
+				'user'                   => $this->input->post('user')
+			);
+			$this->db->insert('m_po_detail', $data_PO1);
+
+			$this->db->where('no_po', $kode);
+			$this->db->from('m_po_detail');
+			echo $jml = $this->db->count_all_results();
+
+			$this->db->select_sum('qty');
+			$this->db->from('m_po_detail');
+			$this->db->where('no_po', $kode);
+			$qty = $this->db->get()->row()->qty;
+			echo $qty;
+
+			$data_PO = array('no_po' => $this->input->post('no'),
+				'vendor'                => $this->input->post('ven'),
+				'jml_item'              => $jml,
+				'jml_qty'               => $qty,
+
+			);
+
+			$this->db->insert('m_po', $data_PO);
+			$s = "<script>
+  alert('Menambahkan Data Berhasil');
+  window.location.href = 'create_PO';
+</script>";
+			echo $s;
+
+		}
 
 	}
 	function add_ajax_kab($ven_vendor) {

@@ -142,7 +142,7 @@ function validAngka(a)
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
                       <ul class="sub">
-                          <li><a class="" href="<?php echo site_url('super/create_PO');?>">Buat PO</a></li>
+                          <li><a class="" href="<?php echo site_url('super/create_PO/');?>">Buat PO</a></li>
                           <li><a class="" href="buttons.html">Buttons</a></li>
                           <li><a class="" href="grids.html">Grids</a></li>
                       </ul>
