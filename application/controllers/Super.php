@@ -243,7 +243,7 @@ class Super extends CI_Controller {
 	function add_ajax_kab($ven_vendor) {
 		$data['produk'] = $this->model_item_list->get_all_produk();
 		$query          = $this->db->get_where('m_produk', array('kd_vendor' => $ven_vendor));
-		$data           = "<option value=''>- Pilih Produk -</option>";
+		$data           = "<option value=''></option>";
 		foreach ($query->result() as $value) {
 			$data .= "<option value='".$value->kd_produk."'>".$value->kd_produk."</option>";
 		}

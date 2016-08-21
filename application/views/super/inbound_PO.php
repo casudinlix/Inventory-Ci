@@ -14,11 +14,13 @@
 
       $("#namaproduk").change(function (){
                 var url = "<?php echo site_url('super/add_ajax_des');?>/"+$(this).val();
-                $('#desa').load(url);
+                $('#').load(url);
                 return false;
             })
         });
+
     </script>
+
 <section class="wrapper">
 <div class="row">
   <div class="col-lg-12">
@@ -61,7 +63,7 @@
    <label>Kode Produk</label>
 <select class="form-control" name="kd" id="kdproduk">
 
-                                  <option>--Pilih--</option>
+                                  <option>-</option>
 
 
                                   </select>
@@ -70,7 +72,7 @@
 <div class="col-sm-4">
 <label>Nama Produk</label>
 <select class="form-control" name="namapro" id="namaproduk" readonly="readonly">
-    <option>--Pilih--</option>
+    <option></option>
 
   </select>
 

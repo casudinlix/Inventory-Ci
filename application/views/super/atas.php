@@ -1,7 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
+<script language='javascript'>
+function validAngka(a)
+{
+  if(!/^[0-9.]+$/.test(a.value))
+  {
+  a.value = a.value.substring(0,a.value.length-1000);
+  }
+}
+</script>
   <script type='text/javascript' src='<?php echo base_url();?>js/jquery.min.js'></script>
     <script type='text/javascript' src='<?php echo base_url();?>js/jquery.autocomplete.js'></script>
 <script src="<?=base_url()?>js/jquery-1.5.2.min.js" type="text/javascript"></script>
