@@ -271,9 +271,9 @@ class Super extends CI_Controller {
 			echo $qty;
 
 			$data_PO = array('no_po' => $this->input->post('no'),
-				'vendor'                => $this->input->post('ven'),
-				'jml_item'              => $jml,
-				'jml_qty'               => $qty,
+
+				'jml_item' => $jml,
+				'jml_qty'  => $qty,
 
 			);
 
